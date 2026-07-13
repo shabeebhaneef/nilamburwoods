@@ -1,0 +1,49 @@
+name: Update Furniture Listings
+
+on:
+  repository_dispatch:
+    types: [update-listings]
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch listings from Google Sheet
+        env:
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+        run: |
+          echo "Fetching listings data from Google Sheet..."
+          curl -L "$SHEET_CSV_URL" -o properties.csv
+          echo "CSV downloaded:"
+          cat properties.csv
+
+      - name: Convert CSV to JSON
+        run: node convert-csv.js
+
+      - name: Generate index.html
+        run: node generate.js
+
+      - name: Commit updated site
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html listings.json properties.csv
+          git diff --staged --quiet || git commit -m "🛋️ Update listings $(date +'%Y-%m-%d %H:%M IST')"
+          git push
