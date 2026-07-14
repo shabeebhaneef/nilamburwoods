@@ -45,28 +45,25 @@ if (rows.length < 2) {
 }
 
 // Map Google Sheet column headers → JSON field names
-// Update these if you rename columns in the sheet.
 const FIELD_MAP = {
-  'status':        'status',
-  'item title':    'title',
-  'title':         'title',
-  'category':      'category',
-  'material':      'material',
-  'wood type':     'material',
-  'condition':     'condition',
-  'price':         'price',
-  'selling price': 'price',
-  'price label':   'price_label',
-  'dimensions':    'dimensions',
-  'size':          'dimensions',
-  'finish':        'finish',
-  'color':         'finish',
-  'description':   'description',
-  'photos':        'photos',
-  'photo urls':    'photos',
-  'youtube url':   'youtube_url',
-  'youtube':       'youtube_url',
-  'partner':       'partner',
+  'status':             'status',
+  'item title':         'title',
+  'title':              'title',
+  'category':           'category',
+  'material':           'material',
+  'wood type':          'material',
+  'condition':          'condition',
+  'price':              'price',
+  'selling price':      'price',
+  'price label':        'price_label',
+  'dimensions':         'dimensions',
+  'size':               'dimensions',
+  'finish':             'finish',
+  'color':              'finish',
+  'description':        'description',
+  'youtube url':        'youtube_url',
+  'youtube':            'youtube_url',
+  'partner':            'partner',
   'experience partner': 'partner',
 };
 
@@ -79,6 +76,15 @@ const listings = rows.slice(1)
       const key = FIELD_MAP[h];
       if (key && row[i] !== undefined) obj[key] = row[i].trim();
     });
+
+    // Combine Photo 1 … Photo 5 columns into a single comma-separated photos field.
+    // This matches the Google Form file upload pattern (one question per photo slot).
+    const photos = ['photo 1', 'photo 2', 'photo 3', 'photo 4', 'photo 5']
+      .map(k => { const i = headers.indexOf(k); return i >= 0 ? (row[i] || '').trim() : ''; })
+      .filter(Boolean)
+      .join(',');
+    if (photos) obj.photos = photos;
+
     return obj;
   })
   .filter(obj => Object.keys(obj).length > 0);
