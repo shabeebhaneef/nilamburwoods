@@ -1,17 +1,17 @@
 [
   {
     "status": "Active",
-    "title": "Test Teak Sofa",
+    "title": "Test Teak Wardrobe",
     "category": "Sofa",
     "material": "Nilambur Teak",
     "condition": "New",
-    "price": "₹45,000",
-    "price_label": "negotiable",
-    "dimensions": "84 × 36 inches",
-    "finish": "Natural Walnut",
-    "description": "A beautiful test listing to verify the pipeline.",
-    "photos": "https://drive.google.com/file/d/test",
+    "price": "₹55,000",
+    "price_label": "",
+    "dimensions": "",
+    "finish": "",
+    "description": "Test listing with real photo upload to verify the pipeline.",
     "youtube_url": "",
-    "partner": "Home Vibes Furniture & Interiors"
+    "partner": "Home Vibes Furniture & Interiors",
+    "photos": "https://drive.google.com/open?id=1lNjd0VnVr09XKvy--ZbO2LQwbq212aN5"
   }
 ]
