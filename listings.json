@@ -1,17 +1,17 @@
 [
   {
-    "title": "Sample Teak King Bed",
-    "category": "Bed",
+    "status": "Active",
+    "title": "Test Teak Sofa",
+    "category": "Sofa",
     "material": "Nilambur Teak",
     "condition": "New",
-    "price": "₹65,000",
-    "price_label": "onwards",
-    "dimensions": "72 × 60 inches",
+    "price": "₹45,000",
+    "price_label": "negotiable",
+    "dimensions": "84 × 36 inches",
     "finish": "Natural Walnut",
-    "description": "Solid Nilambur teak king-size bed with dovetail joints and natural walnut finish. Includes storage headboard.",
-    "photos": "",
+    "description": "A beautiful test listing to verify the pipeline.",
+    "photos": "https://drive.google.com/file/d/test",
     "youtube_url": "",
-    "partner": "Nilamburwoods Showroom",
-    "status": "Active"
+    "partner": "Home Vibes Furniture & Interiors"
   }
 ]
