@@ -75,6 +75,7 @@ CSS custom properties:
 
 ## Experience Partner
 
+- **Name**: Home Vibes Furniture & Interiors
 - **Location**: Powdikonam, Thiruvananthapuram
 - **Address**: Pothencode – Powdikonam Road, Powdikonam – Vattakarikkakom Rd, Uliyazhathura, Kerala 695587
 - **Phone**: +91 94477 93463
