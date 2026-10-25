@@ -84,7 +84,7 @@ CSS custom properties:
 
 ## Contact / WhatsApp
 
-All CTAs use `https://wa.me/918237084084`. Phone `+91 82370 84084` appears throughout.
+All CTAs use `https://wa.me/919567974697`. Phone `+91 95679 74697` appears throughout.
 
 ## Local Development
 
